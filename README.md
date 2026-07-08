@@ -6,25 +6,6 @@ El objetivo del proyecto es predecir los próximos libros que leerán y califica
 
 El pipeline está diseñado bajo un enfoque moderno de **etapas**, optimizado para manejar el desbalance de clases y la eficiencia en cómputo:
 
-[ Historial de Interacciones ]
-│
-▼
-┌──────────────────────────────┐
-│  1. GENERACIÓN DE CANDIDATOS │ (Filtra de +460.000 a solo ~150-250 ítems por usuario)
-└──────────────┬───────────────┘
-│ ──> ALS, BPR, Secuencial (Transiciones), Item-CF,
-│     Autor Favorito, Demografía (Edad/País/Género).
-▼
-┌──────────────────────────────┐
-│    2. EXTRACCIÓN DE FEATURES │ (Computa ~23 variables de afinidad y contexto)
-└──────────────┬───────────────┘
-▼
-┌──────────────────────────────┐
-│    3. RE-RANKING (CatBoost)  │ (Modelo QueryRMSE para ordenar los candidatos)
-└──────────────┬───────────────┘
-▼
-[ Top 20 Recomendaciones ]
-
 ## 🚀 Arquitectura del Sistema
 
 ### 1. Etapa de Recuperación (Candidate Generation)
